@@ -1,0 +1,38 @@
+{
+  "header": [
+    {
+      "name": "title",
+      "title": "Title",
+      "size": 50,
+      "sortable": true,
+      "sortDir": "asc"
+    },
+    {
+      "name": "Quality",
+      "title": "Quality",
+      "sortable": true
+    },
+    {
+      "name": "Torrents_Seeds",
+      "title": "Torrents_Seeds",
+      "sortable": true,
+      "size": 150,
+      "format": "date",
+      "formatMask": "dd-mm-yyyy"
+    },
+    {
+      "name": "Torrents_Peers",
+      "title": "Torrents_Peers",
+      "sortable": true,
+      "size": 80
+    },
+    {
+      "name": "Torrents_URLS",
+      "title": "Torrents_URLS",
+      "sortable": true,
+      "size": 150,
+      "format": "url",
+      "show": true
+    }
+  ],
+  "data":[]}

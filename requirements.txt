@@ -1,0 +1,6 @@
+eel
+pymongo
+requests
+dnspython
+flask
+pandas

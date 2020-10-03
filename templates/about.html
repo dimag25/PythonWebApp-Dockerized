@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Movie Downloader</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+<aside class="sidebar pos-absolute z-2" data-role="sidebar" data-toggle="#sidebar-toggle-3" id="sb3"
+       data-shift=".shifted-content">
+    <div class="sidebar-header" data-image="static/img/logo.jpg">
+        <div class="avatar">
+            <img src="static/img/movie.jpg">
+        </div>
+        <span class="title fg-white">Movie Downloader APP</span>
+        <span class="subtitle fg-white">2020 © Dima</span>
+    </div>
+    <ul class="sidebar-menu">
+        <li id="btnHome"><a><span class="mif-home icon"></span>Home</a></li>
+        <li id="btnOnlineResult"><a><span class="mif-youtube-play icon"></span>Online Streaming</a>
+        </li>
+        <li id="btnTorrentsResult"><a><span class="mif-download icon"></span>Torrents Download</a>
+
+        <li id="btnUpdateDB"><a><span class="mif-database icon"></span>Update Movies Database</a>
+        <li id="btnAbout"><a><span class="mif-info icon"> </span> About</a>
+
+        </li>
+
+        <li class="divider"></li>
+        <li id="btnExit"><a><span class="mif-exit icon"></span>Exit</a></li>
+    </ul>
+</aside>
+
+<div class="shifted-content h-100 p-ab">
+    <div class="app-bar pos-absolute bg-blue z-1" data-role="appbar">
+        <button class="app-bar-item c-pointer" id="sidebar-toggle-3">
+            <span class="mif-menu fg-white"></span>
+        </button>
+
+        <h3 style="color:white;">Movie Downloader</h3>
+    </div>
+</div>
+
+
+    <div class="avatar">
+        <img src="static/img/movie.jpg">
+    </div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-5">About Movie Download
+                    App</h1>
+                <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
+                    This Application is designed to take last data from Movies API :
+                    <br><a
+                        href="https://api.apidomain.info/list?quality=720p,1080p,3d&">
+                    https://api.apidomain.info/list?quality=720p,1080p,3d&</a><br> Including ( IMDB data ratings ,
+                    torrents,etc..)
+                    <br>and redirect it to applicative database (Cloud MongoDB) - Using tab : Update Movies Database.
+                    in order to use the database torrents,movies data inside every download of different type of request
+                    to IMDB API :
+                    <br> <br> <img src="https://icons.iconarchive.com/icons/danleech/simple/512/imdb-icon.png"
+                                   alt="IMDB" width="80" height="50"><br>
+                    Get Update from IMDB_API : <br>
+                    <a href="https://imdb-api.com/api">https://imdb-api.com/api</a></p>
+                Finally you will get movies data with links of torrents and online streaming website like :
+                PopcornTime,ISubsMovies
+                All in one application : Use different tabs : Online Streaming,Torrents Download<br>
+                Enjoy! :)
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+
+</body>
+</html>
+

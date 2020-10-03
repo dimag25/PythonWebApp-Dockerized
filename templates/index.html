@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Movie Downloader</title>
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/static/js/web-app1.js"></script>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+<aside class="sidebar pos-absolute z-2" data-role="sidebar" data-toggle="#sidebar-toggle-3" id="sb3"
+       data-shift=".shifted-content">
+    <div class="sidebar-header" data-image="static/img/logo.jpg">
+        <div class="avatar">
+            <img src="static/img/movie.jpg">
+        </div>
+        <span class="title fg-white">Movie Downloader APP</span>
+        <span class="subtitle fg-white">2020 © Dima</span>
+    </div>
+    <ul class="sidebar-menu">
+        <li id="btnHome"><a><span class="mif-home icon"></span>Home</a></li>
+        <li id="btnOnlineResult"><a><span class="mif-youtube-play icon"></span>Online Streaming</a>
+        </li>
+        <li id="btnTorrentsResult"><a><span class="mif-download icon"></span>Torrents Download</a>
+
+        <li id="btnUpdateDB"><a><span class="mif-database icon"></span>Update Movies Database</a>
+        <li id="btnAbout"><a><span class="mif-info icon"> </span> About</a>
+
+        </li>
+
+        <li class="divider"></li>
+    </ul>
+</aside>
+
+<div class="shifted-content h-100 p-ab">
+    <div class="app-bar pos-absolute bg-blue z-1" data-role="appbar">
+        <button class="app-bar-item c-pointer" id="sidebar-toggle-3">
+            <span class="mif-menu fg-white"></span>
+        </button>
+
+        <h3 style="color:white;">Movie Downloader</h3>
+    </div>
+</div>
+
+
+<section id="sectionHome">
+    <br>
+    <div class="container z-1">
+        <p class="cell-8 offset-22">
+            <img src="https://icons.iconarchive.com/icons/danleech/simple/512/imdb-icon.png"
+                 alt="IMDB" width="80" height="50"><br>
+            Get Update from IMDB_API : <br>
+            <a href="https://imdb-api.com/api">https://imdb-api.com/api</a></p>
+        </p>
+
+
+        <!--        <form method="post">-->
+        <!--            <input type="text" name="text"/>-->
+        <!--            <input type="submit" value="Submit"/>-->
+        <!--        </form>-->
+
+        <form method="post">
+            <div class="cell-8 offset-22">
+                <label for="moviesWebsites" class="cell-8 offset-22">Choose download type:</label>
+                <select id="moviesWebsites"  name="movieType">
+                    <option value="Top250Movies">Top250Movies</option>
+                    <option value="Top250TVs">Top250TVs</option>
+                    <option value="MostPopularMovies">MostPopularMovies</option>
+                    <option value="InTheaters">InTheaters</option>
+                    <option value="ComingSoon">ComingSoon</option>
+                </select>
+            </div>
+            <input type="submit" value="Download" onclick="start_download();"/>
+            <!--            <button class="button drop-shadow" onclick="start_download();">Download</button>-->
+        </form>
+
+        <!--        <form method="post">-->
+        <!--            <input type="text" name="text"/>-->
+        <!--            <input type="submit" value="Submit"/>-->
+        <!--        </form>-->
+    </div>
+</section>
+
+
+<section id="TorrentsSectionResult" style="display: none;">
+    <h5 class="text-light">Torrents:</h5>
+
+    <hr/>
+    <div class="row mb-2">
+        <div class="cell-md-8 my-search-wrapper"></div>
+        <div class="cell-md-4 my-rows-wrapper"></div>
+    </div>
+    <p class="h3 text-center my-info-wrapper"></p>
+
+    <table border="1"
+           class="table table-border striped"
+           data-role="table"
+           data-rows-steps="-1, 5, 10"
+           data-rows="5"
+           data-horizontal-scroll="true"
+           data-horizontal-scroll-stop="lg">
+
+        <thead>
+        <tr>
+            {% for col in torrentsColumns %}
+            <th>{{ col }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for record in torrentsData %}
+        <tr>
+            {% for col in torrentsColumns %}
+            <td><a href="{{ record[col] }}" style="display:block;">&nbsp;{{ record[col] }}</a></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+
+<section id="updateDBSection" style="display: none;">
+    <div class="pos-relative">
+        <div class="bg-white fg-black">
+            <p class="p-2 text-center">
+                Update database with data : Movies/TV shows.<br>
+                <button class="btnUpdateDB" id="get_all_data" onClick="updateMongoDB();"><span
+                        class="mif-database icon"></span>
+                    Update MongoDB
+                </button>
+
+                <br>(Wait for background job results..)<br>
+
+            <p class="p-2 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/300px-IMDB_Logo_2016.svg.png"
+                     alt="imdb" width="100" height="20"><br>
+                Get Update from Movies APi_Domain : <br>
+                <a href="https://api.apidomain.info/list?quality=720p,1080p,3d&">https://api.apidomain.info/list?quality=720p,1080p,3d&</a>
+            </p>
+            </p>
+            </span>
+        </div>
+
+    </div>
+    <section id="progressBarSection">
+        <div class="text-center" id="progress-observe" data-role="progress" data-type="buffer">
+            data-value="0" data-buffer="100"
+            data-on-complete="handleProgressFinish()"
+            data-on-value-change="console.log(arguments)"
+            data-on-buffer-change="console.log(arguments)">
+        </div>
+    </section>
+
+</section>
+<div id="sectionResult" style="display: none;">
+    <h5 class="text-light">Streaming Results :</h5><label id="resultDownload"></label>
+
+    <hr/>
+    <div class="row mb-2">
+        <div class="cell-md-8 my-search-wrapper"></div>
+        <div class="cell-md-4 my-rows-wrapper"></div>
+    </div>
+    <p class="h3 text-center my-info-wrapper"></p>
+
+    <table border="1"
+           class="table table-border striped"
+           data-role="table"
+           data-rows-steps="-1, 5, 10"
+           data-rows="5"
+           data-horizontal-scroll="true"
+           data-horizontal-scroll-stop="lg">
+        <thead>
+        <tr>
+            {% for col in moviesColumns %}
+            <th>{{ col }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for record in moviesData %}
+        <tr>
+            {% for col in moviesColumns %}
+            <td><a href="{{ record[col] }}" style="display:block;">&nbsp;{{ record[col] }}</a></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+<section id="aboutSection" style="display: none;">
+    <div class="avatar">
+        <img src="static/img/movie.jpg">
+    </div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-5">About Movie Download
+                    App</h1>
+                <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
+                    This Application is designed to take last data from Movies API :
+                    <br><a
+                        href="https://api.apidomain.info/list?quality=720p,1080p,3d&">
+                    https://api.apidomain.info/list?quality=720p,1080p,3d&</a><br> Including ( IMDB data ratings ,
+                    torrents,etc..)
+                    <br>and redirect it to applicative database (Cloud MongoDB) - Using tab : Update Movies Database.
+                    in order to use the database torrents,movies data inside every download of different type of request
+                    to IMDB API :
+                    <br> <br> <img src="https://icons.iconarchive.com/icons/danleech/simple/512/imdb-icon.png"
+                                   alt="IMDB" width="80" height="50"><br>
+                    Get Update from IMDB_API : <br>
+                    <a href="https://imdb-api.com/api">https://imdb-api.com/api</a></p>
+                Finally you will get movies data with links of torrents and online streaming website like :
+                PopcornTime,ISubsMovies
+                All in one application : Use different tabs : Online Streaming,Torrents Download<br>
+                Enjoy! :)
+                </p>
+            </div>
+        </div>
+    </div>
+
+</section>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+
+</body>
+</html>
+

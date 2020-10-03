@@ -1,0 +1,53 @@
+{
+	"header": [{
+			"name": "title",
+			"title": "Title",
+			"size": 50,
+			"sortable": true,
+			"sortDir": "asc"
+		},
+		{
+			"name": "genres",
+			"title": "Genres",
+			"sortable": true
+		},
+		{
+			"name": "Release_date",
+			"title": "Release_date",
+			"sortable": true,
+			"size": 150,
+			"format": "date",
+			"formatMask": "dd-mm-yyyy"
+		},
+		{
+			"name": "Rating",
+			"title": "Rating",
+			"sortable": true,
+			"size": 80
+		},
+		{
+			"name": "IMDB_Link",
+			"title": "IMDB_Link",
+			"sortable": true,
+			"size": 150,
+			"format": "url",
+			"show": true
+		},
+		{
+			"name": "PopcornTime",
+			"title": "PopcornTime",
+			"sortable": true,
+			"size": 150,
+			"format": "url",
+			"show": true
+		},
+		{
+			"name": "ISubsMovies",
+			"title": "ISubsMovies",
+			"sortable": true,
+			"size": 150,
+			"format": "url",
+			"show": true
+		}
+	],
+	"data":[["Bill & Ted Face the Music","Adventure, Comedy, Music, Sci-Fi","September 4 2020","","<a href=http://imdb.com/title/tt1086064>http://imdb.com/title/tt1086064</a>","<a href=https://popcorntime-online.io/Bill-&-Ted-Face-the-Music.html?imdb=tt1086064>https://popcorntime-online.io/Bill-&-Ted-Face-the-Music.html?imdb=tt1086064</a>","<a href=https://isubsmovies.com/movie/tt1086064>https://isubsmovies.com/movie/tt1086064</a>"],["2 Hearts","Drama, Romance","September 11 2020","","<a href=http://imdb.com/title/tt5616176>http://imdb.com/title/tt5616176</a>","<a href=https://popcorntime-online.io/2-Hearts.html?imdb=tt5616176>https://popcorntime-online.io/2-Hearts.html?imdb=tt5616176</a>","<a href=https://isubsmovies.com/movie/tt5616176>https://isubsmovies.com/movie/tt5616176</a>"],["Ottolenghi and the Cakes of Versailles","Documentary","September 25 2020","","<a href=http://imdb.com/title/tt11656800>http://imdb.com/title/tt11656800</a>","<a href=https://popcorntime-online.io/Ottolenghi-and-the-Cakes-of-Versailles.html?imdb=tt11656800>https://popcorntime-online.io/Ottolenghi-and-the-Cakes-of-Versailles.html?imdb=tt11656800</a>","<a href=https://isubsmovies.com/movie/tt11656800>https://isubsmovies.com/movie/tt11656800</a>"],["The King's Man","Action, Adventure, Comedy, Crime, Thriller","September 18 2020","","<a href=http://imdb.com/title/tt6856242>http://imdb.com/title/tt6856242</a>","<a href=https://popcorntime-online.io/The-King's-Man.html?imdb=tt6856242>https://popcorntime-online.io/The-King's-Man.html?imdb=tt6856242</a>","<a href=https://isubsmovies.com/movie/tt6856242>https://isubsmovies.com/movie/tt6856242</a>"],["Tenet","Action, Sci-Fi","September 4 2020","","<a href=http://imdb.com/title/tt6723592>http://imdb.com/title/tt6723592</a>","<a href=https://popcorntime-online.io/Tenet.html?imdb=tt6723592>https://popcorntime-online.io/Tenet.html?imdb=tt6723592</a>","<a href=https://isubsmovies.com/movie/tt6723592>https://isubsmovies.com/movie/tt6723592</a>"],["I Am Woman","Biography, Drama, Music, Romance","September 11 2019","","<a href=http://imdb.com/title/tt9185316>http://imdb.com/title/tt9185316</a>","<a href=https://popcorntime-online.io/I-Am-Woman.html?imdb=tt9185316>https://popcorntime-online.io/I-Am-Woman.html?imdb=tt9185316</a>","<a href=https://isubsmovies.com/movie/tt9185316>https://isubsmovies.com/movie/tt9185316</a>"]]}
